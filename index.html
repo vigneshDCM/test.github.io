@@ -15,6 +15,17 @@
   
   <script>
     function initLoad() {
+	    
+	    
+var isMobile = {
+    Android: function() {
+        return navigator.userAgent.match(/Android/i);
+    }
+    iOS: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    
+};
 
 
 			let url_string = "//app.clayfin.com/mobile-qa-corporate/change-password/forgot/activation?token=62cc0e45-a596-4c30-adec-46f2b4497326&lang=en_US"
@@ -24,7 +35,9 @@
 
 			var a = document.getElementById('appStore');
 				a.href = "itms-appss://apps.apple.com/in/app/whatsapp-messenger/id310633997?mt=8"
-      setTimeout(()=>{ document.getElementById("playStore").click();},200)
+      setTimeout(()=>{ if(isMobile.Android()){
+	      document.getElementById("playStore").click();
+      }},200)
      
 			}
    
