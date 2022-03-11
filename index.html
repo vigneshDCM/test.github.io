@@ -1,6 +1,6 @@
 <html>
   <body onload="initLoad()">
-    <h>Test 5</h>
+    <h>Test 6</h>
     
  
     
@@ -35,9 +35,13 @@ var isMobile = {
 
 			var a = document.getElementById('appStore');
 				a.href = "itms-appss://apps.apple.com/in/app/whatsapp-messenger/id310633997?mt=8"
-      setTimeout(()=>{ if(isMobile.Android()){
+      setTimeout(()=>{ 
+	      if(isMobile.Android()){
 	      document.getElementById("playStore").click();
-      }},200)
+      }else{
+	      alert('notMobile')
+      }
+      },200)
      
 			}
    
