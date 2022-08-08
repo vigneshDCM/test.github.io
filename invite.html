@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="frame-src https://docs.google.com;">
+   
+    <script type="text/javascript">
+        function initLoad() {
+
+            function detectAndroidMob() {
+                const toMatch = [
+                    /Android/i
+                ];
+
+                return toMatch.some((toMatchItem) => {
+                    return navigator.userAgent.match(toMatchItem);
+                });
+            }    
+            
+            function detectIOSMob() {
+                const toMatch = [
+                /(iPad|iPhone|iPod)/g
+                ];
+
+                return toMatch.some((toMatchItem) => {
+                    console.log(navigator.userAgent)
+                    return navigator.userAgent.match(toMatchItem);
+                });
+            }   
+
+            var a = document.getElementById('playStore');
+            a.href = "https://play.google.com/store/apps/details?id=com.SABBcorp";
+
+            var a = document.getElementById('appStore');
+            a.href = "itms-appss://apps.apple.com/sa/app/sabbcorp-token/id1497502280?mt=8";
+
+            setTimeout(() => {
+                console.log('setTimeout',detectAndroidMob(),detectIOSMob())
+
+
+                if (detectAndroidMob()) {
+                    console.log('detectAndroidMob')
+                    document.getElementById("playStore").click();
+                }else if(detectIOSMob()){
+                    console.log('detectIOSMob')
+                    document.getElementById("appStore").click();
+                }              
+
+            }, 200)
+        }
+    </script>
+</head>
+
+<body onload="initLoad()">
+
+    <div class="content">
+        <div class="app_market">
+            <a hidden href="#" id="appStore">                
+            </a>
+            <a hidden href="#" id="playStore">                
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
